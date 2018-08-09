@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta Content-Type:=text/html charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<title>Test for AwebSystem</title>
+	</head>
+	<body>
+		<p class='message'></p>
+		<form method="POST" id="form">
+			<div style="margin: 10px">
+				<label for="name">Name</label>
+	        	<input type="text" name="name" id="name" value="" required placeholder="Enter Name">
+			</div>
+			<div style="margin: 10px">
+				<label for="phone">Phone number</label>
+	        	<input type="text" name="phone" id="phone" value="" placeholder="Enter phone number"><br><br>
+			</div>	        	        
+	        <input type="submit" name="send" value="Send" id='send' style="margin: 10px">
+	    </form>
+		
+	    <script type="text/javascript">
+	        $(function(){                    
+	            $('#send').click(function(){    	                 
+	                $.ajax({
+	                    url:'index.php',
+	                    type:'POST',
+	                    data: $('#form').serialize(),
+	                    dataType: 'json',
+	                    success: function(answer){
+	                        if (answer.status == 'error') {	                        	
+	                        	$('.message').html("<span>"+answer.message+"</span>");	                        	
+								}else{
+									if (answer.status == 'added'){
+								$('.message').html("<span>"+answer.message+"</span>");
+								$('#form').hide(); 
+									}
+								}
+							
+	                        	
+	                            }
+	                        })
+	                    })
+	                })
+	            
+	            
+	        
+	    </script>
+	</body>
+</html>
