@@ -20,11 +20,14 @@
 			$pdo = new PDO($dsn, 'root', '', $opt);
 			$user = $pdo->prepare('INSERT INTO users SET  name = ?, phone = ?');
 		    $user->execute(array($_POST['name'], $_POST['phone']));
-        	$answer= [
+        	if ($user){
+        		$answer= [
 		                'status' => 'added',
 		                'message' => 'Data is added',
 		                    ];
-		              echo json_encode($answer);
+		    echo json_encode($answer);
+        	}
+        	
 		            }
 
         	
