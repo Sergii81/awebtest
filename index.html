@@ -28,13 +28,12 @@
 	                    data: $('#form').serialize(),
 	                    dataType: 'json',
 	                    success: function(answer){
-	                        if (answer.status == 'error') {	                        	
+	                        if (answer.status == 'error') {	 
 	                        	$('.message').html("<span>"+answer.message+"</span>");	                        	
 								}else{
 									if (answer.status == 'added'){								
-								$('#form').hide('slow', function(){
-									$('.message').html(answer.message);
-								}); 
+								$('#form').css('display', 'none')
+								$('.message').html(answer.message); 
 									}
 								}
 							
