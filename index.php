@@ -11,7 +11,7 @@
                 'message' => 'Enter Name',
                     ];
            echo json_encode($answer);
-        } //else {
+        } else {
         	if (isset($_POST['name']) && isset($_POST['phone'])){
 		    	$dsn = "mysql:host=localhost;dbname=testaweb;charset=utf8";
 				$opt = array (
@@ -30,7 +30,7 @@
 				          ];
 				echo json_encode($answer);
 		        	}
-		        //}
+		        }
     
         	
 		            
