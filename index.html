@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<p class='message'></p>
-		<form method="POST" id="form">
+		<form method="POST" id="form" onsubmit="return false;">
 			<div style="margin: 10px">
 				<label for="name">Name</label>
 	        	<input type="text" name="name" id="name" value="" required placeholder="Enter Name">
@@ -34,8 +34,8 @@
 									if (answer.status == 'added'){								
 										$('#form').css('display', 'none');
 										$('.message').html(answer.message); 
+										}
 									}
-								}
 							
 	                        	
 	                            }
